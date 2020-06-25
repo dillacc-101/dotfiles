@@ -1,0 +1,199 @@
+; Polybar configuration
+; uwu uwu uwu uwu uwu uwu
+
+[colors]
+background = #0a0a12
+foreground = #ffffff
+primary = #0e1821
+secondary = #44535e
+workspaces_bg = #d64d61
+workspaces_fg = #dfdfdf
+memory = #689d6a
+date = #458588
+
+[bar/dillacc]
+width = 100%
+height = 25
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-color = #ffffff
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = fixed:pixelsize=10;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = siji:pixelsize=10;1
+
+modules-left = workspaces 
+modules-center = xwindow 
+modules-right = pulseaudio cpu temperature memory battery date powermenu
+
+padding-left = 0
+padding-right = 5
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/workspaces]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+enable-click = true
+
+label-mode-padding = 2
+label-mode-foreground = ${colors.foreground}
+label-mode-background = ${colors.background}
+
+label-focused = %index%
+label-focused-background = ${colors.workspaces_bg}
+label-focused-foreground = ${colors.workspaces_fg}
+label-focused-padding = 2
+label-unfocused-padding = 2
+
+label-visible = %index%
+label-visible-background = ${colors.workspaces_bg}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 99
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${colors.secondary} 
+
+format-discharging = <animation-discharging> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.secondary}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.secondary}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.secondary}
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-foreground = ${colors.secondary}
+animation-discharging-framerate = 750
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-underline = ${colors.primary}
+label = %percentage:2%%
+format-prefix = "cpu: " 
+
+[module/memory]
+type = internal/memory
+interval = 3
+format-underline = ${colors.memory}
+label = %percentage_used%%
+format-prefix = "ram: "
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume> <bar-volume>
+label-volume = VOL %percentage%%
+label-volume-foreground = ${root.foreground}
+
+label-muted = 🔇 muted
+label-muted-foreground = #666
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground}
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <label>
+format-underline = #f50a4d
+format-prefix = "temp: " 
+
+
+label = %temperature-c%
+
+[module/date]
+type = internal/date
+
+; Seconds to sleep between updates
+; Default: 1.0
+interval = 1.0
+
+; See "https://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+date = %Y-%m-%d%
+
+; Optional time format
+time = %H:%M
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+date-alt = %A, %d %B %Y
+time-alt = %H:%M:%S
+label = %date% %time%
+format-underline = ${colors.primary}
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.secondary}
+label-close =  cancel
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+

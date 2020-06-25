@@ -1,0 +1,6 @@
+configuration {
+ modi: "window,drun,ssh,combi";
+ theme: "menu";
+terminal: "alacritty";
+ combi-modi: "window,drun,ssh";
+ }

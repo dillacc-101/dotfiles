@@ -1,0 +1,23 @@
+background_opacity: 0.95 
+colors:
+        primary:
+                background: '#0a0e14'
+font:
+        normal:
+                family: JetBrains Mono
+                style: Regular
+        bold:
+                family: JetBrains Mono
+                style: Bold
+        italic:
+                family: JetBrains Mono
+                style: Italic
+        italic_bold:
+                family: JetBrains Mono
+                style: Bold Italic
+        size: 9.0
+
+key_bindings:
+
+        - { key: K, mods: Alt, action: ScrollPageUp, }
+        - { key: J, mods: Alt, action: ScrollPageDown, }
