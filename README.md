@@ -9,4 +9,4 @@ Polybar
 ## GTK Theme: 
 Arc Dark
 ## WALLPAPER: 
-[Click me](https://www.reddit.com/r/wallpaper/comments/hf2mvl/rising_sun1920x1080/]
+[Click me](https://www.reddit.com/r/wallpaper/comments/heik4c/sunrise_on_mount_rainier_was_probably_one_of_my/)
