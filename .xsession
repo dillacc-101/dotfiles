@@ -34,9 +34,17 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-export GTK_THEME=Arc-Dark
-xset r rate 300 50 &
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export WGETRC=$XDG_CONFIG_HOME/wgetrc
+export GTK2_RC_FILES="$HOME/.config/gtk-2.0"
+export PASSWORD_STORE_DIR="$HOME/.local/share/.password-store"
+export ZDOTDIR="$HOME/.config/zsh"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export GTK_THEME=Ant-Dracula
 cbatticon -u 20 -i notification -c "poweroff" -l 25 -r 8 &
+xset r rate 300 50 &
 
 # Automont usb, and other devices
 udiskie -t &
@@ -48,4 +56,4 @@ dunst &
 picom &
 
 # Background
-bash ~/.fehbg &
+xwallpaper --zoom .config/wall.jpg
