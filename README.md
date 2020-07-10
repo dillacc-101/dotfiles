@@ -1,6 +1,6 @@
 # Dots
 
-![Screenshot](https://github.com/dillacc-101/dotfiles/screenshots/dillacc-07⁄10⁄20.png)
+![Screenshot](https://github.com/dillacc-101/dotfiles/blob/master/screenshots/dillacc-07%E2%81%8410%E2%81%8420.png)
 ## WM: 
 i3, sometimes Qtile uwu
 ## TERM: 
