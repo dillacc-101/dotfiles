@@ -1,13 +1,13 @@
 # Dots
 
-![Screenshot](https://github.com/dillacc-101/dotfiles/blob/master/screenshots/dillacc-07%E2%81%8410%E2%81%8420.png)
+![Screenshot](https://raw.githubusercontent.com/lldbee/dotfiles/master/screenshots/rice-08%E2%81%8425%E2%81%8420.png)
 ## WM: 
-i3, sometimes Qtile uwu
+i3
 ## TERM: 
-Alacritty
+st
 ## BAR:
 Polybar
 ## GTK Theme: 
-Arc Dark
+One Dark
 ## WALLPAPER: 
 [Click me](https://www.reddit.com/r/wallpaper/comments/heik4c/sunrise_on_mount_rainier_was_probably_one_of_my/)
