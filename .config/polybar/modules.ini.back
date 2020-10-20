@@ -1,29 +1,16 @@
 # MODULES
 
-
-###########
-#  TITLE  #
-###########
-[module/title]
-type = internal/xwindow
-format = <label>
-format-foreground = ${color.magenta}
-format-padding = 4
-
-label = %title%
-label-maxlen = 30 
-
 ###########
 # BATTERY #
 ###########
 [module/battery_t]
 type = custom/text
-content = ""
-content-foreground = ${color.red}
+content = "BAT"
+content-foreground = ${color.green}
 
 [module/battery]
 type = internal/battery
-full-at = 100 
+full-at = 99
 battery = BAT0
 adapter = ACAD
 
@@ -33,38 +20,13 @@ format-charging-padding = 1
 format-discharging-padding = 1
 format-padding = 1
 
-format-charging = <animation-charging> <label-charging>
-format-discharging = <animation-discharging> <label-discharging>
-format-full = <ramp-capacity> <label-full>
+format-charging = <label-charging>
+format-discharging = <label-discharging>
 
 label-charging = %percentage%%
 label-discharging = %percentage%%
 label-full = 100%
 label-full-padding = 1
-
-# format-discharging-foreground = ${color.red}
-# format-charging-foreground = ${color.red}
-# format-full-foreground = ${color.red}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-foreground = ${color.green}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-framerate = 750
-animation-charging-foreground = ${color.green}
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-3 = 
-animation-discharging-framerate = 750
-animation-discharging-foreground = ${color.green}
 
 ##############
 # WORKSPACES #
@@ -100,7 +62,7 @@ label-urgent-padding = 1
 label-occupied-padding = 1
 label-empty-padding = 1
 
-label-active-foreground = ${color.red}
+label-active-foreground = ${color.green}
 label-active-background = ${color.bg_active}
 label-occupied-foreground = ${color.grey}
 label-empty-foreground = ${color.foreground}
@@ -111,25 +73,17 @@ label-empty-foreground = ${color.foreground}
 [module/bright_t]
 type = custom/text
 content = "BRIGHT"
-content-foreground = ${color.red}
+content-foreground = ${color.green}
 
 [module/bright]
 type = internal/backlight
 
 card = intel_backlight
 
-format = <ramp> <label>
+format = <label>
 format-padding = 1
 
 label = %percentage%%
-
-# ramp-0 = 
-ramp-4 = 🌕
-ramp-3 = 🌔
-ramp-2 = 🌓
-ramp-1 = 🌒
-ramp-0 = 🌑
-ramp-foreground = ${color.yellow}
 
 ##########
 # VOLUME #
@@ -137,24 +91,18 @@ ramp-foreground = ${color.yellow}
 [module/vol_t]
 type = custom/text
 content = "VOL"
-content-foreground = ${color.red}
+content-foreground = ${color.green}
 
 [module/vol]
 type = internal/pulseaudio
 
-format-volume = <ramp-volume> <label-volume>
+format-volume = <label-volume>
 format-padding = 1
 format-volume-padding = 1
 format-muted-padding = 1
 
-format-volume-font = 2
-
-label-muted = 🔇 
+label-muted = MUTE
 label-volume = %percentage%%
-
-ramp-volume-0 = 🔈 
-ramp-volume-1 = 🔉 
-ramp-volume-2 = 🔊 
 
 ########
 # DATE #
@@ -163,16 +111,15 @@ ramp-volume-2 = 🔊
 type = custom/text
 
 content = "TIME"
-content-foreground = ${color.red}
+content-foreground = ${color.green}
 
 [module/date]
 type = internal/date
 time = %I:%M %p
-date = "%d/%m/%Y"
+date = "| %d/%m/%Y"
 
-format = 🕓 <label>
-#label = %date% %time%
-label = %time%
+format = <label>
+label = %time% %date%
 format-padding = 1
 
 #############
@@ -180,5 +127,5 @@ format-padding = 1
 #############
 [module/sep]
 type = custom/text
-content = " "
+content = "  "
 content-padding = 0

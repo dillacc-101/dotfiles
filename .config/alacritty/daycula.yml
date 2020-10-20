@@ -1,0 +1,43 @@
+colors:
+        primary:
+                background: '#1a1d45'
+                foreground: '#d7b7bb'
+
+        normal:
+                black: '#1a1d45'
+                red: '#ff4ea5'
+                green: '#7eb564'
+                yellow: '#eaad64'
+                blue: '#7a89ec'
+                magenta: '#b66cdc'
+                cyan: '#6cac99'
+                white: '#d7b7bb'
+                
+        bright:
+                black: '#323884'
+                red: '#ff4ea5'
+                green: '#7eb564'
+                yellow: '#eaad64'
+                blue: '#7a89ec'
+                magenta: '#b66cdc'
+                cyan: '#6cac99'
+                white: '#d7b7bb'
+font:
+        normal:
+                family: JetBrains Mono
+                style: Regular
+        bold:
+                family: JetBrains Mono
+                style: Bold
+        italic:
+                family: Cartograph CF
+                style: Italic
+        italic_bold:
+                family: Cartograph CF
+                style: Bold Italic
+        size: 9.0
+
+key_bindings:
+
+        - { key: K, mods: Alt, action: ScrollPageUp, }
+        - { key: J, mods: Alt, action: ScrollPageDown, }

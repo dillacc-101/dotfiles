@@ -1,69 +1,85 @@
-"==============================================================
-" Plugggggggins 
-call plug#begin()
+let g:tex_flavor = 'latex'
 
-Plug('preservim/nerdtree')
-Plug ('vim-airline/vim-airline-themes')
-Plug('vim-airline/vim-airline')
-Plug('ap/vim-css-color')
-"Plug('ycm-core/YouCompleteMe')
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-Plug('dracula/vim')
-Plug('franbach/miramare')
-Plug ('tpope/vim-fugitive')
-"Plug('ctrlpvim/ctrlp.vim')
-Plug ('tpope/vim-surround')
-Plug('lewis6991/moonlight.vim')
-Plug('gruvbox-community/gruvbox')
-Plug('gryf/wombat256grf')
-Plug('severij/vadelma')
-Plug ('joshdick/onedark.vim')
-Plug ('kaicataldo/material.vim') 
-Plug 'neoclide/coc.nvim', {'branch': 'release'} 
-call plug#end()
-"==============================================================
-set termguicolors 
-colorscheme miramare 
-hi Normal guibg=NONE ctermbg=NONE
-hi EndOfBuffer guibg=NONE ctermbg=NONE
-highlight Comment cterm=italic gui=italic
+syntax on
 
-" ======== Config =========
-set relativenumber number
+set relativenumber
+set number
+set nohlsearch
+set hidden
+set noerrorbells
+set smartindent
+set nu
 set nowrap
-set viminfo="$XDG_DATA_HOME/vim/viminfo"
+set smartcase
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+set termguicolors
+set scrolloff=8
+set noshowmode
+set completeopt=menuone,noinsert,noselect
 
-" Airline theme
-autocmd	vimenter * AirlineTheme minimalist 
+function RunPy()
+	!python3 %
+endfunction
 
-" NERDTree Configuration
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif 
+function CompileC()
+	!gcc -g -Wall -o /tmp/a.out %
+	!/tmp/a.out
+endfunction
 
 "COC
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1] =~ '\s'
 endfunction
-" =============================================================
-" Run python
-function RunPy()
-	!python3 %
-endfunction
 
-" Compile C and execute
-function CompileC()
-	!gcc -o /tmp/a.out %
-	!/tmp/a.out
-endfunction
 
-" Compile LaTeX
-function LaTeX()
-	w
-	!pdflatex %
-endfunction
+call plug#begin()
 
-" =================== General Keybinds ========================
+Plug 'lervag/vimtex'
+Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug('preservim/nerdtree')
+Plug('vim-airline/vim-airline')
+Plug('ap/vim-css-color')
+Plug ('tpope/vim-fugitive')
+
+Plug 'branwright1/salvation-vim'
+Plug 'ghifarit53/daycula-vim' , {'branch' : 'main'}
+Plug 'ghifarit53/tokyonight-vim'
+Plug('dracula/vim')
+Plug('franbach/miramare')
+Plug('lewis6991/moonlight.vim')
+Plug('gruvbox-community/gruvbox')
+Plug('gryf/wombat256grf')
+Plug('severij/vadelma')
+Plug ('joshdick/onedark.vim')
+Plug ('kaicataldo/material.vim') 
+Plug ('vim-airline/vim-airline-themes')
+call plug#end()
+
+let g:gruvbox_contrast_dark = 'hard'
+let g:tokyonight_style = 'night'
+let g:tokyonight_enable_italic = 1
+let g:daycula_enable_italic = 1
+colorscheme tokyonight 
+highlight Comment cterm=italic gui=italic
+
+" No background
+" hi Normal guibg=NONE ctermbg=NONE
+" hi EndOfBuffer guibg=NONE ctermbg=NONE
+
+" Airline theme
+autocmd	vimenter * AirlineTheme tokyonight 
+
+" NERDTree Configuration
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif 
+
 let mapleader = " "
+
 map <C-k> :%s//g<Left><Left>
 inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
@@ -73,14 +89,10 @@ map mm :w<CR>
 map <C-h> :vsp 
 map <C-l> :call CompileC()<CR>
 map <C-l>p :call RunPy()<CR>
-map <leader>t :wincmd v<bar> Ex <bar> vertical resize 30 <CR>
-map <leader>l :call LaTeX()<CR><CR>
 map <C-n> :NERDTreeToggle<CR>
-nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
-
-filetype plugin on
-let g:instant_markdown_slow = 1
-let g:instant_markdown_autostart = 0
-"let g:instant_markdown_browser = 'brave --new-window'
-map <C-m> :InstantMarkdownPreview<CR>
-"==============================================================
+map <C-p> :FZF<CR>
+nnoremap <leader>cs :CocSearch <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>cd <Plug>(coc-definition)
+nmap <leader>ct <Plug>(coc-type-definition)
+nmap <leader>ci <Plug>(coc-implementation)
+nmap <leader>cr <Plug>(coc-references)

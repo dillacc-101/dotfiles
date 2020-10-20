@@ -1,0 +1,19 @@
+[color]
+
+background = #000000
+;background = #2A2426
+foreground = #e6d6ac
+
+black = #000000
+red = #e68183
+green = #87af87
+yellow = #d9bb80
+blue = #89beba
+magenta = #d3a0bc
+cyan = #87c095
+white = #ffffff
+grey = #444444
+gold = #d8caac
+light_grey = #5b5b5b
+
+bg_active = #151313
