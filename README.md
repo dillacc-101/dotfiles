@@ -1,13 +1,5 @@
-# Dots
+# dotfiles
 
-![Screenshot](https://raw.githubusercontent.com/lldbee/dotfiles/master/screenshots/rice-08%E2%81%8425%E2%81%8420.png)
-## WM: 
-i3
-## TERM: 
-st
-## BAR:
-Polybar
-## GTK Theme: 
-One Dark
-## WALLPAPER: 
-[Click me](https://www.reddit.com/r/wallpaper/comments/heik4c/sunrise_on_mount_rainier_was_probably_one_of_my/)
+# tokyonight
+Inspired in the [tokyonight](https://github.com/ghifarit53/tokyonight-vim) colorscheme from ghifarit53.
+![Screenshot](https://raw.githubusercontent.com/die00/dotfiles/master/screenshots/rice_2020-10-20_12-24.png)
